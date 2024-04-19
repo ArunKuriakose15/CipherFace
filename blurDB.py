@@ -5,7 +5,9 @@ import numpy as np
 import pymongo
 
 # Connect to MongoDB (replace with your connection details)
-client = pymongo.MongoClient("mongodb+srv://arun:arun123@cluster0.5bjnd.mongodb.net/cipherfaceDb?retryWrites=true&w=majority")  # Replace with your MongoDB connection string
+mongodb_uri = os.environ.get("MONGODB_URI")
+
+client = pymongo.MongoClient("mongodb_uri") 
 db = client["cipherfaceDb"]    # Replace with your database name
 frames_collection = db["Anonymize"]  # Replace with your collection name
 

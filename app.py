@@ -1,7 +1,9 @@
 from imports import *
 
 # Connect to MongoDB (replace with your connection details)
-client = pymongo.MongoClient("mongodb+srv://arun:arun123@cluster0.5bjnd.mongodb.net/cipherfaceDb?retryWrites=true&w=majority")  # Replace with your MongoDB connection string
+mongodb_uri = os.environ.get("MONGODB_URI")
+
+client = pymongo.MongoClient("mongodb_uri")  # Replace with your MongoDB connection string
 db = client["cipherfaceDb"]    # Replace with your database name
 frames_collection = db["Image"]  # Replace with your collection name
 selective_collection=db["Selective"]

@@ -4,8 +4,12 @@ from flask import request,abort
 from flask import current_app
 from pymongo import MongoClient
 import pymongo
+import os
+from dotenv import load_dotenv
 
-client = pymongo.MongoClient("mongodb+srv://arun:arun123@cluster0.5bjnd.mongodb.net/cipherfaceDb?retryWrites=true&w=majority")  # Replace with your MongoDB connection string
+mongodb_uri = os.environ.get("MONGODB_URI")
+
+client = pymongo.MongoClient("mongodb_uri") 
 db = client["cipherfaceDb"]   # Replace with your database name
 user_collection=db["User"]
 

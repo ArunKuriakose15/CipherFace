@@ -2,7 +2,9 @@ import os
 from moviepy.editor import *
 import pymongo
 
-client = pymongo.MongoClient("mongodb+srv://arun:arun123@cluster0.5bjnd.mongodb.net/cipherfaceDb?retryWrites=true&w=majority")  # Replace with your MongoDB connection string
+mongodb_uri = os.environ.get("MONGODB_URI")
+
+client = pymongo.MongoClient("mongodb_uri") 
 db = client["cipherfaceDb"]   
 frames_collection = db["Anonymize"]
 video_info_collection = db["video_info"]
